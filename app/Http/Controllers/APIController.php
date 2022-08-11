@@ -7,6 +7,7 @@ use App\Models\User;
 
 class APIController extends Controller
 {
+    // GET API
     public function getUsers($id=null){
         if(empty($id)){
             // if ID is empty then this will run and Return All Data
@@ -19,4 +20,14 @@ class APIController extends Controller
             return response()->json(["user"=>$users]);
         }
     }
+
+    // POST API
+    public function addUsers(Request $request){
+        if($request->isMethod('post')){
+            $userData = $request->input();
+            echo "<pre>"; print_r($userData); die;
+        }
+    }
+
+
 }
